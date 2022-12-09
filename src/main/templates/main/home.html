@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %} {% block title %}Resume View{% endblock %}
+{% block content %} {% for resume in resumes %}
+<div class="card mt-2">
+  <div class="card-header"><strong>@{{ resume.user.username }}</strong></div>
+  <div class="card-body d-flex flex-row justify-content-between">
+    <div>
+      <h5 class="card-title">First name: {{resume.first_name}}</h5>
+      <h5 class="card-title">Last name: {{resume.last_name}}</h5>
+      <h5 class="card-title">Location: {{resume.location}}</h5>
+      <p>Experience: {{resume.experience}}</p>
+    </div>
+  </div>
+</div>
+{% empty %}
+<p>No resume created yet! Create here: <a href="/edit-resume">Here</a>!</p>
+{% endfor %} {% endblock %}
